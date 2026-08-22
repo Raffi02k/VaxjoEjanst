@@ -1,4 +1,5 @@
 # Växjö Eltjänst – nytt webbkoncept
+<img width="1440" height="780" alt="Screenshot 2026-08-22 at 21 35 07" src="https://github.com/user-attachments/assets/4c869a66-63fd-40d7-88bd-3e5975989529" />
 
 Komplett React/TypeScript + FastAPI-projekt byggt som en egen implementation med den bifogade handyman-sidan som visuell inspirationskälla. Ingen Framer-, WordPress- eller iframe-kod används i slutprojektet.
 
