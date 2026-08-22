@@ -39,7 +39,7 @@ export default function Header() {
       <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
         <div className="header-inner shell">
           <Link className="brand" to="/" aria-label="Växjö Eltjänst startsida">
-            <img src="/images/eltjanst-logo.png" alt="Växjö Eltjänst" />
+            <img src="/images/Vaksjologo.png" alt="Växjö Eltjänst" />
           </Link>
           <nav className="desktop-nav" aria-label="Huvudnavigation">
             {siteContent.nav.map((item) => (
