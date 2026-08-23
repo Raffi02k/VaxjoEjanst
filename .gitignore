@@ -1,0 +1,11 @@
+# Node modules
+node_modules/
+
+# OpenCode configuration and logs
+opencode.json
+.opencode/
+
+# Diverse miljövariabler och loggar
+.env
+.env.local
+npm-debug.log*
