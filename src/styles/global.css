@@ -64,7 +64,7 @@ main {
   z-index: 50;
   inset: 0 0 auto;
   transition: .3s ease;
-  color: #fff;
+  color: #ffffff;
 }
 
 .site-header.is-scrolled {
