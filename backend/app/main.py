@@ -32,10 +32,12 @@ class ContactPayload(BaseModel):
     phone: str = Field(min_length=5, max_length=40)
     customer_type: str = Field(default="Privatperson", max_length=60)
     service: str = Field(default="Elinstallation", max_length=100)
+    address: str = Field(default="", max_length=180)
     message: str = Field(min_length=10, max_length=2000)
+    consent: bool
     website: str = Field(default="", max_length=200)
 
-    @field_validator("name", "company", "phone", "customer_type", "service", "message", "website", mode="before")
+    @field_validator("name", "company", "phone", "customer_type", "service", "address", "message", "website", mode="before")
     @classmethod
     def trim_strings(cls, value):
         return value.strip() if isinstance(value, str) else value
@@ -81,7 +83,8 @@ def send_contact_email(payload: ContactPayload) -> bool:
         f"E-post: {payload.email}\n"
         f"Telefon: {payload.phone}\n"
         f"Kundtyp: {payload.customer_type}\n"
-        f"Tjänst: {payload.service}\n\n"
+        f"Tjänst: {payload.service}\n"
+        f"Plats/adress: {payload.address or '-'}\n\n"
         f"Meddelande:\n{payload.message}\n"
     )
 
@@ -107,6 +110,8 @@ def contact(payload: ContactPayload, request: Request):
     check_rate_limit(ip)
     if payload.website:
         return {"ok": True, "message": "Tack!"}
+    if not payload.consent:
+        raise HTTPException(status_code=422, detail="Du måste godkänna behandling av personuppgifter.")
 
     try:
         emailed = send_contact_email(payload)

@@ -1,11 +1,22 @@
-# Node modules
-node_modules/
+.DS_Store
 
-# OpenCode configuration and logs
-opencode.json
-.opencode/
-
-# Diverse miljövariabler och loggar
+# Root
 .env
-.env.local
-npm-debug.log*
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+frontend/*.tsbuildinfo
+
+# Backend
+backend/.env
+backend/.venv/
+backend/__pycache__/
+backend/**/*.pyc
+
+# Editor / OS
+.idea/
+.vscode/

@@ -1,0 +1,6 @@
+import { Link } from "react-router-dom";
+import { ArrowIcon, PageHero, PageMeta } from "../components";
+
+export function AboutPage() {
+  return <main><PageMeta title="Om oss" description="Lär känna Växjö Eltjänst – ett etablerat elinstallationsbolag i Växjö sedan 2008 och del av SELATEK." /><PageHero eyebrow="Om Växjö Eltjänst" title="Lokal kraft sedan 2008" text="Ett etablerat elinstallationsbolag med cirka 13 engagerade medarbetare och hela SELATEKs nätverk i ryggen." image="/images/hero-electrician.webp" /><section className="section"><div className="container editorial-grid"><div><span className="eyebrow">Vår berättelse</span><h2>Nära kunden. Starka tillsammans.</h2></div><div><p>Växjö Eltjänst hjälper privatpersoner, företag och fastighetsägare med kompletta elinstallationer. Företaget grundades 2008 och har vuxit genom teknisk kompetens, kvalitet och långsiktiga kundrelationer.</p><p>Sedan 2026 är Växjö Eltjänst en del av SELATEK. Det lokala entreprenörskapet och den operativa ledningen finns kvar, samtidigt som bolaget får tillgång till ett större nätverk och fler möjligheter.</p><Link className="button button--dark" to="/kontakt">Kontakta oss <ArrowIcon /></Link></div></div></section><section className="section image-band"><img src="/images/selatek-partnership.jpeg" alt="Växjö Eltjänst är en del av SELATEK" /></section></main>;
+}
