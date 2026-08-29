@@ -6,6 +6,7 @@ export * from "./Layout";
 export * from "./LogoMark";
 export * from "./PageHero";
 export * from "./PageMeta";
+export * from "./PageTransition";
 export * from "./ProjectsSection";
 export * from "./ReviewsRail";
 export * from "./ScrollToTop";

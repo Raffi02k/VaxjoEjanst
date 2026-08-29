@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { services } from "../content";
 import { ArrowIcon } from "./ArrowIcon";
 import { LogoMark } from "./LogoMark";
@@ -9,6 +9,16 @@ export function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  function handleLogoClick(e: React.MouseEvent) {
+    e.preventDefault();
+    if (pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate("/");
+    }
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -40,7 +50,7 @@ export function Header() {
             </div>
           </div>
         </nav>
-        <Link to="/" className="header-logo" aria-label="Växjö Eltjänst – startsida"><LogoMark /></Link>
+        <Link to="/" className="header-logo" aria-label="Växjö Eltjänst – startsida" onClick={handleLogoClick}><LogoMark /></Link>
         <nav className="desktop-nav desktop-nav--right" aria-label="Primär navigation höger">
           <NavLink to="/projekt">Projekt</NavLink><NavLink to="/kontakt">Kontakt</NavLink><Link className="header-cta" to="/kontakt#offert">Begär offert</Link>
         </nav>
