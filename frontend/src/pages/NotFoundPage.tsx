@@ -1,6 +1,22 @@
 import { Link } from "react-router-dom";
-import { ArrowIcon, PageMeta } from "../components";
+import { PageMeta } from "../components";
 
 export function NotFoundPage() {
-  return <main><PageMeta title="Sidan hittades inte" description="Sidan du söker finns inte." /><section className="not-found"><div><span className="eyebrow eyebrow--light">404</span><h1>Sidan hittades inte</h1><p>Länken kan vara gammal eller sidan kan ha flyttats.</p><Link className="button button--light" to="/">Till startsidan <ArrowIcon /></Link></div></section></main>;
+  return (
+    <main className="not-found">
+      <PageMeta title="404" description="Sidan du söker finns inte." />
+      <meta name="robots" content="noindex" />
+      <section className="not-found__panel" aria-labelledby="not-found-title">
+        <p className="eyebrow eyebrow--light">404 · Sidan hittades inte</p>
+        <h1 id="not-found-title">Den sidan finns inte.</h1>
+        <p>Det verkar bara vara den här sidan som saknas, inte hela webbplatsen.</p>
+        <p>Gå tillbaka till startsidan, se våra tjänster eller kontakta oss om länken verkar fel.</p>
+        <div className="not-found__actions">
+          <Link className="button not-found__primary" to="/">Till startsidan</Link>
+          <Link className="button button--outline-light" to="/tjanster">Våra tjänster</Link>
+          <Link className="button button--outline-light" to="/kontakt">Kontakta oss</Link>
+        </div>
+      </section>
+    </main>
+  );
 }
