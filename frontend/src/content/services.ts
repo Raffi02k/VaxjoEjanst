@@ -50,7 +50,7 @@ export const services: Service[] = [
     intro: "Modern elteknik som gör fastigheten enklare att använda, bättre förberedd och mer energieffektiv.",
     description: "Laddning, styrning, modern belysning och energismarta installationer anpassade efter fastighetens verkliga behov.",
     image: "/images/project-23491.jpg",
-    secondaryImage: "/images/project-48297.jpg",
+    secondaryImage: "/images/project-23695.jpg",
     details: [
       { title: "Laddning & effekt", text: "Vi hjälper till att skapa en trygg grund för elbilsladdning och framtida effektbehov.", bullets: ["Behovsanalys och förberedelse", "Laddlösningar för hem och verksamhet", "Säker inkoppling och kontroll"] },
       { title: "Belysning & styrning", text: "Rätt teknik kan ge bättre miljö, lägre energianvändning och enklare kontroll.", bullets: ["LED-belysning inom- och utomhus", "Närvaro- och tidsstyrning", "Anpassning för framtida funktioner"] },

@@ -4,6 +4,7 @@ export * from "./HomePage";
 export * from "./IntegrityPage";
 export * from "./NotFoundPage";
 export * from "./ProjectsPage";
+export * from "./ProjectDetailPage";
 export * from "./ReviewsPage";
 export * from "./ServicePage";
 export * from "./ServicesPage";
