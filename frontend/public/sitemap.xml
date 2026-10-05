@@ -15,4 +15,15 @@
   <url><loc>https://www.vaxjoeltjanst.se/projekt/komplett-villainstallation-hovshaga</loc><priority>0.7</priority></url>
   <url><loc>https://www.vaxjoeltjanst.se/recensioner</loc><priority>0.6</priority></url>
   <url><loc>https://www.vaxjoeltjanst.se/kontakt</loc><priority>0.8</priority></url>
+  <url><loc>https://www.vaxjoeltjanst.se/orter</loc><priority>0.9</priority></url>
+  <url><loc>https://www.vaxjoeltjanst.se/orter/vaxjo</loc><priority>0.9</priority></url>
+  <url><loc>https://www.vaxjoeltjanst.se/orter/alvesta</loc><priority>0.8</priority></url>
+  <url><loc>https://www.vaxjoeltjanst.se/orter/ljungby</loc><priority>0.8</priority></url>
+  <url><loc>https://www.vaxjoeltjanst.se/orter/almhult</loc><priority>0.8</priority></url>
+  <url><loc>https://www.vaxjoeltjanst.se/orter/tingsryd</loc><priority>0.8</priority></url>
+  <url><loc>https://www.vaxjoeltjanst.se/orter/lessebo</loc><priority>0.8</priority></url>
+  <url><loc>https://www.vaxjoeltjanst.se/orter/uppvidinge</loc><priority>0.8</priority></url>
+  <url><loc>https://www.vaxjoeltjanst.se/orter/rottne</loc><priority>0.8</priority></url>
+  <url><loc>https://www.vaxjoeltjanst.se/orter/braas</loc><priority>0.8</priority></url>
+  <url><loc>https://www.vaxjoeltjanst.se/orter/ingelstad</loc><priority>0.8</priority></url>
 </urlset>

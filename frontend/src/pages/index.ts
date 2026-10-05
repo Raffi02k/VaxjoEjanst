@@ -2,6 +2,8 @@ export * from "./AboutPage";
 export * from "./ContactPage";
 export * from "./HomePage";
 export * from "./IntegrityPage";
+export * from "./LocationPage";
+export * from "./LocationsIndexPage";
 export * from "./NotFoundPage";
 export * from "./ProjectsPage";
 export * from "./ProjectDetailPage";

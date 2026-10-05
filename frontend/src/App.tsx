@@ -5,6 +5,8 @@ import {
   ContactPage,
   HomePage,
   IntegrityPage,
+  LocationPage,
+  LocationsIndexPage,
   NotFoundPage,
   ProjectDetailPage,
   ProjectsPage,
@@ -22,6 +24,8 @@ export default function App() {
           <Route path="/om-oss" element={<AboutPage />} />
           <Route path="/tjanster" element={<ServicesPage />} />
           <Route path="/tjanster/:slug" element={<ServicePage />} />
+          <Route path="/orter" element={<LocationsIndexPage />} />
+          <Route path="/orter/:slug" element={<LocationPage />} />
           <Route path="/projekt" element={<ProjectsPage />} />
           <Route path="/projekt/:slug" element={<ProjectDetailPage />} />
           <Route path="/recensioner" element={<ReviewsPage />} />
