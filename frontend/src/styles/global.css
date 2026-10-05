@@ -246,11 +246,11 @@ video {
 }
 
 .desktop-nav a {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.9);
   font-family: var(--font-display);
-  font-size: 0.94rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-size: 1.08rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   transition: color 0.2s ease;
 }
@@ -260,9 +260,10 @@ video {
 }
 
 .desktop-nav .header-cta {
-  padding: 0.72rem 1.35rem;
-  font-size: 0.92rem;
-  font-weight: 700;
+  padding: 0.75rem 1.45rem;
+  font-size: 1.02rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
   color: var(--black);
   background: var(--white);
   border: 1px solid var(--white);
@@ -431,7 +432,7 @@ video {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 11vw, 4rem);
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.02em;
   line-height: 1;
   text-transform: uppercase;
@@ -1779,18 +1780,23 @@ video {
   align-items: center;
   gap: .4rem;
   padding: 1.8rem 0;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.9);
   background: transparent;
   cursor: pointer;
   font-family: var(--font-display);
-  font-size: 0.94rem;
-  font-weight: 600;
-  letter-spacing: .12em;
+  font-size: 1.08rem;
+  font-weight: 800;
+  letter-spacing: .10em;
   text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.nav-dropdown__trigger:hover {
+  color: var(--white);
 }
 
 .nav-dropdown__trigger span {
-  font-size: .95rem;
+  font-size: 1.05rem;
   transition: transform .25s ease;
 }
 
@@ -1804,7 +1810,7 @@ video {
   position: absolute;
   top: calc(100% - 8px);
   left: 50%;
-  min-width: 245px;
+  min-width: 255px;
   padding: .7rem;
   background: #fff;
   border-radius: 7px;
@@ -1827,10 +1833,14 @@ video {
 
 .desktop-nav .nav-dropdown__menu a {
   display: block;
-  padding: .8rem 1rem;
-  color: #222;
-  border-radius: 4px;
-  font-size: 0.86rem;
+  padding: .85rem 1.1rem;
+  color: #1a1a1a;
+  border-radius: 5px;
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .desktop-nav .nav-dropdown__menu a:hover {
@@ -1850,7 +1860,7 @@ video {
   cursor: pointer;
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 11vw, 4rem);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1;
   text-transform: uppercase;
 }
