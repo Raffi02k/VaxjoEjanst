@@ -13,10 +13,32 @@ export function Header() {
 
   function handleLogoClick(e: React.MouseEvent) {
     e.preventDefault();
+    setOpen(false);
+    setServicesOpen(false);
     if (pathname === "/") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
       navigate("/");
+    }
+  }
+
+  function handleMobileNavClick(to: string, e?: React.MouseEvent) {
+    setOpen(false);
+    setServicesOpen(false);
+    const targetPath = to.split("#")[0];
+    const targetHash = to.includes("#") ? to.substring(to.indexOf("#")) : "";
+
+    if (pathname === targetPath) {
+      if (targetHash) {
+        const el = document.querySelector(targetHash);
+        if (el) {
+          e?.preventDefault();
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+          return;
+        }
+      }
+      e?.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }
 
@@ -103,12 +125,26 @@ export function Header() {
     </header>
     {open && <div className="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobilmeny">
       <nav className="mobile-menu__links">
-        <Link to="/">Start</Link><Link to="/om-oss">Om oss</Link>
+        <Link to="/" onClick={(e) => handleMobileNavClick("/", e)}>Start</Link>
+        <Link to="/om-oss" onClick={(e) => handleMobileNavClick("/om-oss", e)}>Om oss</Link>
         <button className="mobile-services-trigger" onClick={() => setServicesOpen(v => !v)} aria-expanded={servicesOpen}>Tjänster <span>{servicesOpen ? "−" : "+"}</span></button>
-        {servicesOpen && <div className="mobile-services-panel"><Link to="/tjanster">Alla tjänster</Link>{services.map(s => <Link key={s.slug} to={`/tjanster/${s.slug}`}>{s.shortTitle}</Link>)}</div>}
-        <Link to="/projekt">Projekt</Link><Link to="/recensioner">Recensioner</Link><Link to="/kontakt">Kontakt</Link>
+        {servicesOpen && (
+          <div className="mobile-services-panel">
+            <Link to="/tjanster" onClick={(e) => handleMobileNavClick("/tjanster", e)}>Alla tjänster</Link>
+            {services.map(s => (
+              <Link key={s.slug} to={`/tjanster/${s.slug}`} onClick={(e) => handleMobileNavClick(`/tjanster/${s.slug}`, e)}>
+                {s.shortTitle}
+              </Link>
+            ))}
+          </div>
+        )}
+        <Link to="/projekt" onClick={(e) => handleMobileNavClick("/projekt", e)}>Projekt</Link>
+        <Link to="/recensioner" onClick={(e) => handleMobileNavClick("/recensioner", e)}>Recensioner</Link>
+        <Link to="/kontakt" onClick={(e) => handleMobileNavClick("/kontakt", e)}>Kontakt</Link>
       </nav>
-      <Link className="button button--light mobile-menu__cta" to="/kontakt#offert">Begär offert <ArrowIcon /></Link>
+      <Link className="button button--light mobile-menu__cta" to="/kontakt#offert" onClick={(e) => handleMobileNavClick("/kontakt#offert", e)}>
+        Begär offert <ArrowIcon />
+      </Link>
       <div className="mobile-menu__contact"><a href="tel:+46705657021">070-565 70 21</a><a href="mailto:mathias@vaxjoeltjanst.se">mathias@vaxjoeltjanst.se</a></div>
     </div>}
   </>;
