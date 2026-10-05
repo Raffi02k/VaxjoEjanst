@@ -1032,10 +1032,7 @@ video {
   gap: 1.25rem;
   width: max-content;
   animation: reviewsScroll 58s linear infinite;
-}
-
-.reviews-track:hover {
-  animation-play-state: paused;
+  pointer-events: auto;
 }
 
 @keyframes reviewsScroll {
@@ -1045,50 +1042,67 @@ video {
 }
 
 .review-card {
+  display: flex;
+  flex-direction: column;
   width: min(420px, 82vw);
-  min-height: 300px;
-  padding: 1.7rem;
+  min-height: 290px;
+  padding: 1.75rem;
   border: 1px solid #e8e8e5;
   border-radius: 9px;
   background: var(--white);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.055);
 }
 
-.review-demo {
-  display: block;
-  margin-bottom: 1rem;
-  color: #939496;
-  font-size: 0.58rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
+.review-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.review-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #374151;
+  background: #f3f4f6;
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
 }
 
 .stars {
   color: #f2a600;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.12em;
+  font-size: 1.05rem;
 }
 
 .review-card blockquote {
   margin: 1.25rem 0 1.8rem;
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 500;
-  line-height: 1.35;
+  line-height: 1.4;
+  color: #111827;
 }
 
 .review-card footer {
   display: flex;
   flex-direction: column;
+  gap: 0.2rem;
   margin-top: auto;
 }
 
 .review-card footer b {
-  font-size: 0.86rem;
+  font-size: 0.92rem;
+  color: #111827;
 }
 
 .review-card footer span {
-  color: var(--muted);
-  font-size: 0.72rem;
+  color: #6b7280;
+  font-size: 0.78rem;
 }
 
 .reviews-cta {
@@ -1768,7 +1782,8 @@ video {
 }
 
 .nav-dropdown:hover .nav-dropdown__trigger span,
-.nav-dropdown:focus-within .nav-dropdown__trigger span {
+.nav-dropdown.is-open .nav-dropdown__trigger span,
+.nav-dropdown:has(:focus-visible) .nav-dropdown__trigger span {
   transform: rotate(180deg);
 }
 
@@ -1783,14 +1798,17 @@ video {
   box-shadow: 0 20px 50px rgba(0, 0, 0, .2);
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   transform: translate(-50%, 10px);
   transition: all .25s var(--ease);
 }
 
 .nav-dropdown:hover .nav-dropdown__menu,
-.nav-dropdown:focus-within .nav-dropdown__menu {
+.nav-dropdown.is-open .nav-dropdown__menu,
+.nav-dropdown:has(:focus-visible) .nav-dropdown__menu {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
   transform: translate(-50%, 0);
 }
 

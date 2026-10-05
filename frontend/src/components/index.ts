@@ -1,6 +1,7 @@
 export * from "./ArrowIcon";
 export * from "./ContactForm";
 export * from "./Footer";
+export * from "./GoogleIcon";
 export * from "./Header";
 export * from "./Layout";
 export * from "./LogoMark";

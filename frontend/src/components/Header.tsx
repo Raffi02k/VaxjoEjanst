@@ -33,6 +33,18 @@ export function Header() {
   }, [pathname]);
 
   useEffect(() => {
+    if (!servicesOpen) return;
+    const handlePointerDown = (e: PointerEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (!target?.closest(".nav-dropdown") && !target?.closest(".mobile-services-trigger")) {
+        setServicesOpen(false);
+      }
+    };
+    window.addEventListener("pointerdown", handlePointerDown);
+    return () => window.removeEventListener("pointerdown", handlePointerDown);
+  }, [servicesOpen]);
+
+  useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [open]);
@@ -42,9 +54,41 @@ export function Header() {
       <div className="header-inner">
         <nav className="desktop-nav desktop-nav--left" aria-label="Primär navigation vänster">
           <NavLink to="/om-oss">Om oss</NavLink>
-          <div className="nav-dropdown">
-            <button type="button" className="nav-dropdown__trigger" aria-haspopup="true" aria-expanded={servicesOpen} onClick={() => setServicesOpen(v => !v)}>Tjänster <span>⌄</span></button>
-            <div className="nav-dropdown__menu">
+          <div
+            className={`nav-dropdown ${servicesOpen ? "is-open" : ""}`}
+            onMouseEnter={() => setServicesOpen(true)}
+            onMouseLeave={(e) => {
+              setServicesOpen(false);
+              if (document.activeElement instanceof HTMLElement && e.currentTarget.contains(document.activeElement)) {
+                document.activeElement.blur();
+              }
+            }}
+          >
+            <button
+              type="button"
+              className="nav-dropdown__trigger"
+              aria-haspopup="true"
+              aria-expanded={servicesOpen}
+              onClick={(e) => {
+                setServicesOpen(v => {
+                  if (v) {
+                    (e.currentTarget as HTMLElement).blur();
+                  }
+                  return !v;
+                });
+              }}
+            >
+              Tjänster <span>⌄</span>
+            </button>
+            <div
+              className="nav-dropdown__menu"
+              onClick={() => {
+                setServicesOpen(false);
+                if (document.activeElement instanceof HTMLElement) {
+                  document.activeElement.blur();
+                }
+              }}
+            >
               <Link to="/tjanster">Alla tjänster</Link>
               {services.map(service => <Link key={service.slug} to={`/tjanster/${service.slug}`}>{service.shortTitle}</Link>)}
             </div>
